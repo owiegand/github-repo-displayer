@@ -1,0 +1,2 @@
+$GitHubUserName = "";
+$GithubPassword = "";

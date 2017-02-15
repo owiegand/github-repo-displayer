@@ -1,5 +1,5 @@
 <?php
-include('userAccountInfo.php'); //Add Vars Containg User Account Info
+include('userAccountInfo.php'); //Include Vars Containg User Account Info
 
 //$data_string = json_encode($data);
 $url = 'https://api.github.com/users/'.$GitHubUserName.'/repos'; //API URL to get a users repos. This currently only returns public repos.
@@ -52,6 +52,7 @@ $RepoOptions = json_decode($ReadMeText,true);
 
 
 $RepoInfo = array();
+
 //Options Coming From the Github API
 $RepoInfo['name'] = $RepoName;
 $RepoInfo['description'] = $RepoDes;

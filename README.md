@@ -18,3 +18,10 @@ While the libaray can extract basic data for each repo from the Github API, user
 [**GITHUBPHPPARSER**]
 -->
 ```
+
+### Notice
+This libaray doesn't provide anyway to cache the results returned. If this going to be used on a site, the results returned from this libaray should be cached and updated daily as not to overload Github's API with unnecessary calls.
+
+
+## Updates
+Updates to this libaray will be made if there is a bug found or something changes with the Github API. Please open an issue on Github for all bugs/issues found. I will also be adding in new properties that the libaray returns when necessary.

@@ -40,15 +40,16 @@ curl_close($ch);
 
 $DataArray = json_decode($data,true);
 //Finds The Start of the Github Parser Info
-/*TODO: Make Sure When Stop at the Closing Tag
-Use This Code Instead
-$startsAt = strpos($out, "{FINDME}") + strlen("{FINDME}");
-$endsAt = strpos($out, "{/FINDME}", $startsAt);
-$result = substr($out, $startsAt, $endsAt - $startsAt);
-*/
-$ReadMeText = trim(preg_split('/\[\*\*GITHUBPHPPARSER\*\*\]/', base64_decode($DataArray["content"]))[1]);
-$ReadMeText = preg_replace('/-->/', '', $ReadMeText);
-$RepoOptions = json_decode($ReadMeText,true);
+//TODO: Make Sure When Stop at the Closing Tag
+
+$ReadMeText = base64_decode($DataArray["content"]);
+
+//Extract The Data From Readme file between two tags.
+$startsAt = strpos($ReadMeText , "[**GITHUBPHPPARSER**]") + strlen("[**GITHUBPHPPARSER**]");
+$endsAt = strrpos($ReadMeText, "[**GITHUBPHPPARSER**]");
+$result = substr($ReadMeText, $startsAt, $endsAt-$startsAt);
+
+$RepoOptions = json_decode($result,true);
 
 
 $RepoInfo = array();

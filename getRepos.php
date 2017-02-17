@@ -46,8 +46,8 @@ foreach($result as $SingleRepo){
 	$ReadMeText = base64_decode($DataArray["content"]);
 	
 	//Extract The Data From Readme file between two tags.
-	$startsAt = strpos($ReadMeText , "[**GITHUBPHPPARSER**]") + strlen("[**GITHUBPHPPARSER**]");
-	$endsAt = strrpos($ReadMeText, "[**GITHUBPHPPARSER**]");
+	$startsAt = strpos($ReadMeText , "[**GITHUBPARSER**]") + strlen("[**GITHUBPARSER**]");
+	$endsAt = strrpos($ReadMeText, "[**GITHUBPARSER**]");
 	$result = substr($ReadMeText, $startsAt, $endsAt-$startsAt);
 	
 	$RepoOptions = json_decode($result,true);
@@ -56,27 +56,11 @@ foreach($result as $SingleRepo){
 	$RepoInfo = array();
 	
 	//Options Coming From the Github API
-	$RepoInfo['name'] = $RepoName;
-	$RepoInfo['description'] = $RepoDes;
-	$RepoInfo['html_url'] = $RepoURL;
-	$RepoInfo['language'] = $RepoLangauge;
-	
 	//Custom Options Coming From The Readme File
-	if($RepoOptions['AltShortDesc'] != NULL){
-		$RepoInfo['AltShortDesc'] = $RepoOptions['AltShortDesc'];
+	foreach($RepoOptions as $key => $JSONElemet){
+		$RepoInfo[$key] = $JSONElemet;
 	}
-	if($RepoOptions['LongDesc'] != NULL){
-		$RepoInfo['LongDesc'] = $RepoOptions['LongDesc'];
-	}
-	if($RepoOptions['ImgURL'] != NULL){
-		$RepoInfo['ImgURL'] = $RepoOptions['ImgURL'];
-	}
-	if($RepoOptions['ThumbailImgURL'] != NULL){
-		$RepoInfo['ThumbailImgURL'] = $RepoOptions['ThumbailImgURL'];
-	}
-	if($RepoOptions['Category'] != NULL){
-		$RepoInfo['Category'] = $RepoOptions['Category'];
-	}
+
 	$AllRepoInfo = $RepoInfo;
 }
 

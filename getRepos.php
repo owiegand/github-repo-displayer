@@ -24,10 +24,12 @@ $result = json_decode($content,true); //Array Containing all public repos owned 
 $AllRepoInfo = array();
 
 foreach($result as $SingleRepo){
-	$RepoName = $SingleRepo['name'];
-	$RepoDes = $SingleRepo['description'];
-	$RepoURL = $SingleRepo['html_url'];
-	$RepoLangauge = $SingleRepo['language'];
+	$RepoInfo = array();
+	
+	$RepoInfo['name'] = $SingleRepo['name'];
+	$RepoInfo['description'] = $SingleRepo['description'];
+	$RepoInfo['html_url'] = $SingleRepo['html_url'];
+	$RepoInfo['language'] = $SingleRepo['language'];
 	$RepoAPIURL = $SingleRepo['url'];
 	$ReadMeURL = $RepoAPIURL.'/readme';
 	
@@ -45,6 +47,9 @@ foreach($result as $SingleRepo){
 
 	$ReadMeText = base64_decode($DataArray["content"]);
 	
+	//print_r($ReadMeText);
+
+	
 	//Extract The Data From Readme file between two tags.
 	$startsAt = strpos($ReadMeText , "[**GITHUBPARSER**]") + strlen("[**GITHUBPARSER**]");
 	$endsAt = strrpos($ReadMeText, "[**GITHUBPARSER**]");
@@ -53,21 +58,14 @@ foreach($result as $SingleRepo){
 	$RepoOptions = json_decode($result,true);
 	
 	
-	$RepoInfo = array();
-	
 	//Options Coming From the Github API
 	//Custom Options Coming From The Readme File
 	foreach($RepoOptions as $key => $JSONElemet){
 		$RepoInfo[$key] = $JSONElemet;
-	}
-
-	$AllRepoInfo = $RepoInfo;
+	}	
+	$AllRepoInfo[] = $RepoInfo;
+	unset($RepoInfo);
 }
-
-
-
-
-print_r($AllRepoInfo);
 
 
 ?>

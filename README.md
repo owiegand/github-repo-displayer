@@ -26,3 +26,12 @@ This libaray doesn't provide anyway to cache the results returned. If this going
 
 ## Updates
 Updates to this libaray will be made if there is a bug found or something changes with the Github API. Please open an issue on Github for all bugs/issues found.
+
+
+<!--
+[**GITHUBPARSER**]
+{
+  "Icon": "fa-code-fork"
+}
+[**GITHUBPARSER**]
+-->

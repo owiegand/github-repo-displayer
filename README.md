@@ -8,7 +8,7 @@ While the libaray can extract basic data for each repo from the Github API, user
 
 ```
 <!--
-[**GITHUBPARSER**]
+<GITHUBPARSER>
 {
   "AltShortDesc": "This is the Short DESC",
   "LongDesc": "This is the Ling DSEC",
@@ -16,7 +16,7 @@ While the libaray can extract basic data for each repo from the Github API, user
   "ThumbailImgURL": "http://www.google.org",
   "Category": "Test Category\n"
 }
-[**GITHUBPARSER**]
+</GITHUBPARSER>
 -->
 ```
 
@@ -29,10 +29,10 @@ Updates to this libaray will be made if there is a bug found or something change
 
 
 <!--
-[**GITHUBPARSER**]
+<GITHUBPARSER>
 {
   "Icon": "fa-cutlery"
 }
-[**GITHUBPARSER**]
+</GITHUBPARSER>
 -->
 

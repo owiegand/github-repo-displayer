@@ -14,8 +14,7 @@ While the libaray can extract basic data for each repo from the Github API, user
   "LongDesc": "This is the Ling DSEC",
   "ImgURL": "http://www.google.com",
   "ThumbailImgURL": "http://www.google.org",
-  "Category": "Test Category\n",
-  "Icon": "fa-code-fork"
+  "Category": "Test Category\n"
 }
 [**GITHUBPARSER**]
 -->
